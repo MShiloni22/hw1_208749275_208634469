@@ -4,7 +4,10 @@ import pandas
 # load_data function
 def load_data(path, features):
     """
-    This function turns the .csv dataset into a dictionary.
+    This function turns the .csv dataset into a dictionary, using pandas
+    :param path: the path of the csv file
+    :param features: list of the relevant features
+    :return: dictionary - data
     """
     df = pandas.read_csv(path)
     data = df.to_dict(orient="list")
