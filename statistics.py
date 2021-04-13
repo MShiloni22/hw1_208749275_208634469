@@ -30,7 +30,18 @@ def median(values):
 def population_statistics(feature_description, data, treatment, target, threshold, is_above,
                       statistic_functions):
     """
-    This function prints central tendency statistics about 'population'.
+    Prints statistics measures about 'target', using statistic functions
+    :param feature_description: a string to print
+    :param data: dataset from which we take the values
+    :param treatment: a special feature, determining by it which values to take
+    :param target: the feature we want to print statistic measures about
+    :param threshold: a special value of 'treatment', divides feature 'treatment' to two groups
+    :param is_above: boolean value, goes along with 'threshold'
+    :param statistic_functions: sum, mean and median functions
     """
     if is_above:
         vals = [j for i, j in enumerate(data[target]) if threshold < data[treatment][i]]
+        print("cnt:" + mean(vals), median(vals))
+    else:
+        vals = [j for i, j in enumerate(data[target]) if threshold >= data[treatment][i]]
+        print("cnt:" + mean(vals), median(vals))
