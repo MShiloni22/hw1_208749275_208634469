@@ -9,15 +9,11 @@ def main(argv):
     statistic_functions = [statistics.sum,statistics.mean,statistics.median]
     print ("Question 1:")
     feature_list = ["hum", "t1", "cnt"]
-    name_list = ["Summer", "Holiday", "All"]
-    j = 6
-    for index, i in enumerate(name_list):
-        if j<=8:
-            data_name, data_not_name = data.filter_by_value(data_dict, feature_list[index], {1})
-            data.print_details(data_name, feature_list, statistic_functions, i)
-            j = j + 2
-            continue
-        data.print_details(data_dict, feature_list, statistic_functions, i)
+    data_name, data_not_name = data.filter_by_value(data_dict, 'season', {1})
+    data.print_details(data_name, feature_list, statistic_functions, 'Summer')
+    data_name, data_not_name = data.filter_by_value(data_dict, 'is_holiday', {1})
+    data.print_details(data_name, feature_list, statistic_functions, 'Holiday')
+    data.print_details(data_dict, feature_list, statistic_functions, 'All')
 
     # question 2
     print ("Question 2:")
