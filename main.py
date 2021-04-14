@@ -1,5 +1,4 @@
 import sys
-import pandas
 import data
 import statistics
 
