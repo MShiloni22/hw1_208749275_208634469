@@ -38,6 +38,7 @@ def population_statistics(feature_description, data, treatment, target, threshol
     :param is_above: boolean value, goes along with 'threshold'
     :param statistic_functions: sum, mean and median functions
     """
+    print(feature_description,":")
     if is_above:
         vals = [j for i, j in enumerate(data[target]) if threshold < data[treatment][i]]
         print("cnt:", mean(vals), median(vals))
