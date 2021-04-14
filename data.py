@@ -43,7 +43,7 @@ def print_details(data, features, statistic_functions,name):
     print (name,":")
     for i in features:
         leng = len(statistic_functions)
-        print(i, ":", end="")
+        print(i, ":", sep="", end="")
         for j in statistic_functions:
             if leng == 1:
                 print(" ", j(data[i]), sep="")
