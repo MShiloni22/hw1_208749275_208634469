@@ -11,11 +11,12 @@ def main(argv):
     feature_list = ["hum", "t1", "cnt"]
     name_list = ["Summer", "Holiday", "All"]
     j = 6
-    for i in name_list:
+    for index, i in enumerate(name_list):
         if j<=8:
-            data_name, data_not_name = data.filter_by_value(data_dict, argv[2][j], {1})
+            data_name, data_not_name = data.filter_by_value(data_dict, feature_list[index], {1})
             data.print_details(data_name, feature_list, statistic_functions, i)
             j = j + 2
+            continue
         data.print_details(data_dict, feature_list, statistic_functions, i)
 
     # question 2
