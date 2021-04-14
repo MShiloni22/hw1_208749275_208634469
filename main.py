@@ -10,12 +10,12 @@ def main(argv):
     print ("Question 1:")
     feature_list = ["hum", "t1", "cnt"]
     name_list = ["Summer", "Holiday", "All"]
-    j = 3
+    j = 6
     for i in name_list:
         if j<=4:
             data_name, data_not_name = data.filter_by_value(data_dict, argv[2][j], {1})
             data.print_details(data_name, feature_list, statistic_functions, i)
-            j = j + 1
+            j = j + 2
         data.print_details(data_dict, feature_list, statistic_functions, i)
 
     # question 2
@@ -23,15 +23,15 @@ def main(argv):
     is_above = 0
     title_list = ["Winter holiday records:", "Winter weekday records:"]
     print ("If t1<=13.0, then:")
-    data_name, data_not_name = data.filter_by_value(data_dict, argv[2][4], {1})
+    data_name, data_not_name = data.filter_by_value(data_dict, 'is_holiday', {1})
     dict_list = [data_name, data_not_name]
     for m,k in enumerate(title_list):
-        statistics.population_statistics(k, dict_list[m], argv[2][1], argv[2][2], 13.0, is_above,
+        statistics.population_statistics(k, dict_list[m], 't1', 'cnt', 13.0, is_above,
                               statistic_functions)
     is_above = 1
     print("If t1>13.0, then:")
     for n,l in enumerate(title_list):
-        statistics.population_statistics(l, dict_list[n], argv[2][1], argv[2][2], 13.0, is_above,
+        statistics.population_statistics(l, dict_list[n], 't1', 'cnt', 13.0, is_above,
                               statistic_functions)
 
 if __name__ == '__main__':

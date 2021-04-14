@@ -40,14 +40,13 @@ def filter_by_value(data, feature, value):
 
 # print_details function
 def print_details(data, features, statistic_functions,name):
-    leng = len(statistic_functions)
     print (name,":")
     for i in features:
+        leng = len(statistic_functions)
         print(i, ":", end="")
         for j in statistic_functions:
             if leng == 1:
-                print(" ", j(data[i]), sep="", end="")
+                print(" ", j(data[i]), sep="")
             else:
                 print(" ", j(data[i]), ",", sep="", end="")
-        leng -= 1
-        print("\n")
+            leng -= 1
