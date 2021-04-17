@@ -40,7 +40,7 @@ def filter_by_value(data, feature, value):
 
 # print_details function
 def print_details(data, features, statistic_functions,name):
-    print (name,":")
+    print (name,":", sep="")
     for i in features:
         leng = len(statistic_functions)
         print(i, ":", sep="", end="")
