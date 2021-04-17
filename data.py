@@ -25,10 +25,10 @@ def filter_by_value(data, feature, value):
     """
     data1 = {}
     data2 = {}
-    for i in data:
+    for i in data:  # creates the keys
         data1.update({i: []})
         data2.update({i: []})
-    for i in range(len(data[feature])):
+    for i in range(len(data[feature])): # puts the values in the relevant keys
         if data[feature][i] in value:
             for j in data:
                 data1[j].append(data[j][i])
@@ -40,10 +40,18 @@ def filter_by_value(data, feature, value):
 
 # print_details function
 def print_details(data, features, statistic_functions,name):
-    print (name,":", sep="")
+    """
+    Prints Q1
+    :param data: dictionary with the relevant values
+    :param features: the name of the relevant list of values that will be calculated
+    :param statistic_functions: three statistics functions, from statistics.py
+    :param name: header
+    :return: none
+    """
+    print (name,":", sep="")    # sep removes irrelevant spaces
     for i in features:
         leng = len(statistic_functions)
-        print(i, ":", sep="", end="")
+        print(i, ":", sep="", end="")   # end removes irrelevant '\n'
         for j in statistic_functions:
             if leng == 1:
                 print(" ", j(data[i]), sep="")

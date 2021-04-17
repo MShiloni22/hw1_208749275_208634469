@@ -3,6 +3,11 @@ import data
 
 
 def sum(values):
+    """
+    Calculates sum
+    :param values: list of values
+    :return: sum of values
+    """
     sum1 = 0
     for i in values:
         sum1 = sum1 + i
@@ -10,6 +15,11 @@ def sum(values):
 
 
 def mean(values):
+    """
+    Calculates mean, using 'sum' function
+    :param values: list of values
+    :return: mean
+    """
     number_of_elem = len(values)
     sum1 = sum(values)
     mean1 = sum1 / number_of_elem
@@ -17,8 +27,14 @@ def mean(values):
 
 
 def median(values):
+    """
+    Returns the median value in the list
+    :param values: list of values
+    :return: median value
+    """
     number_of_elem = len(values)
     values_sorted = sorted(values)
+    # split to two cases, determined by the total number of values - odd/even
     if number_of_elem % 2 == 0:
         median1 = (values_sorted[int(number_of_elem/2)]+values_sorted[(int(number_of_elem/2))-1])/2
     else:
@@ -40,6 +56,7 @@ def population_statistics(feature_description, data, treatment, target, threshol
     """
     print(feature_description)
     if not is_above:
+        # insert relevant values to a list, according the given condition
         vals = [j for i, j in enumerate(data[target]) if threshold >= data[treatment][i]]
         print("cnt: ", mean(vals), ", ", median(vals), sep="")
     else:

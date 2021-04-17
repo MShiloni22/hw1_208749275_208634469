@@ -4,6 +4,12 @@ import statistics
 
 
 def main(argv):
+    """
+    Main function of the program
+    :param argv: argv[0] = /home/student/your_path/main.py, argv[1] = /home/student/your_path/ london.csv,
+    argv[2] = "hum, t1, cnt, season, is_holiday"
+    :return: none
+    """
     #question 1
     data_dict=data.load_data(argv[1],argv[2])
     statistic_functions = [statistics.sum,statistics.mean,statistics.median]
