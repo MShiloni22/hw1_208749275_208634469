@@ -20,7 +20,8 @@ def main(argv):
     is_above = 0
     title_list = ["Winter holiday records:", "Winter weekday records:"]
     print ("If t1<=13.0, then:")
-    data_name, data_not_name = data.filter_by_value(data_dict, 'is_holiday', {1})
+    data_winter, data_not_winter = data.filter_by_value(data_dict, 'season', {3})
+    data_name, data_not_name = data.filter_by_value(data_winter, 'is_holiday', {1})
     dict_list = [data_name, data_not_name]
     for m,k in enumerate(title_list):
         statistics.population_statistics(k, dict_list[m], 't1', 'cnt', 13.0, is_above,

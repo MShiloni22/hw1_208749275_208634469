@@ -22,8 +22,8 @@ def median(values):
     if number_of_elem % 2 == 0:
         median1 = (values_sorted[int(number_of_elem/2)]+values_sorted[(int(number_of_elem/2))-1])/2
     else:
-        median1 = values_sorted[int(number_of_elem/2)+1]
-    return median1
+        median1 = values_sorted[int(number_of_elem/2)]
+    return median1*1.0
 
 
 def population_statistics(feature_description, data, treatment, target, threshold, is_above,
@@ -39,9 +39,9 @@ def population_statistics(feature_description, data, treatment, target, threshol
     :param statistic_functions: sum, mean and median functions
     """
     print(feature_description)
-    if is_above:
-        vals = [j for i, j in enumerate(data[target]) if threshold < data[treatment][i]]
+    if not is_above:
+        vals = [j for i, j in enumerate(data[target]) if threshold >= data[treatment][i]]
         print("cnt: ", mean(vals), ", ", median(vals), sep="")
     else:
-        vals = [j for i, j in enumerate(data[target]) if threshold >= data[treatment][i]]
+        vals = [j for i, j in enumerate(data[target]) if threshold < data[treatment][i]]
         print("cnt: ", mean(vals), ", ", median(vals), sep="")
