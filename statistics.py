@@ -1,8 +1,7 @@
-import math
-import data
 
 
-def sum(values):
+
+def sum_f(values):
     """
     Calculates sum
     :param values: list of values
@@ -21,7 +20,7 @@ def mean(values):
     :return: mean
     """
     number_of_elem = len(values)
-    sum1 = sum(values)
+    sum1 = sum_f(values)
     mean1 = sum1 / number_of_elem
     return mean1
 
@@ -43,7 +42,7 @@ def median(values):
 
 
 def population_statistics(feature_description, data, treatment, target, threshold, is_above,
-                      statistic_functions):
+                          statistic_functions):
     """
     Prints statistics measures about 'target', using statistic functions
     :param feature_description: a string to print
@@ -58,7 +57,7 @@ def population_statistics(feature_description, data, treatment, target, threshol
     if not is_above:
         # insert relevant values to a list, according the given condition
         vals = [j for i, j in enumerate(data[target]) if threshold >= data[treatment][i]]
-        print("cnt: ", mean(vals), ", ", median(vals), sep="")
+        print("cnt: ", statistic_functions[1](vals), ", ", statistic_functions[2](vals), sep="")
     else:
         vals = [j for i, j in enumerate(data[target]) if threshold < data[treatment][i]]
-        print("cnt: ", mean(vals), ", ", median(vals), sep="")
+        print("cnt: ", statistic_functions[1](vals), ", ", statistic_functions[2](vals), sep="")
