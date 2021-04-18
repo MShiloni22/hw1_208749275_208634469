@@ -20,6 +20,7 @@ def main(argv):
     data_name, data_not_name = data.filter_by_value(data_dict, 'is_holiday', {1})
     data.print_details(data_name, feature_list, statistic_functions, 'Holiday')
     data.print_details(data_dict, feature_list, statistic_functions, 'All')
+    print("\n")    # before question 2 output
 
     # question 2
     print("Question 2:")
